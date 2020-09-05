@@ -1,0 +1,132 @@
+<html>
+<style>
+#botao1 {
+ position: absolute;
+ z-index:0 ; 
+}
+#botao2{
+ position: absolute;
+ z-index:-2 ; 
+}
+#botao3{
+ position: absolute;
+ z-index:-2 ; 
+}
+
+
+
+
+#botaoesquerda1{
+ position: absolute;
+ z-index:0 ; 
+
+}
+#botaoesquerda2{
+ position: absolute;
+ z-index:-2 ; 
+}
+#botaoesquerda3{
+ position: absolute;
+ z-index:-2 ; 
+}
+
+.caixa {
+display: flex;
+  flex-direction: row;
+
+}
+
+.direita {
+width: 40px; 
+height: 30px
+}
+.esquerda {
+width: 40px;
+height: 30px 
+}
+
+</style>
+<body>
+<div class="container">
+<div id="imagemum"><img id="imagem1" src="imagem1.png" alt="imagem" width="500" height="200" style=" position: absolute; z-index: -1; "></div>
+<div id="imagemum"><img id="imagem2" src="imagem2.png" alt="imagem" width="500" height="200" style=" position: absolute; z-index: -2; "></div>
+<div id="imagemum"><img id="imagem3" src="imagem3.png" alt="imagem" width="500" height="200" style=" position: absolute; z-index: -2; "></div>
+
+</div>
+
+<script>
+
+function trocaimagem(novaimagem,velhaimagem) {
+	document.getElementById(novaimagem).style.zIndex = "-1";
+	document.getElementById(velhaimagem).style.zIndex = "-2";  
+	document.getElementById("imagem3").style.zIndex = "-2";
+
+}
+function trocabotao(botaodadireitaqueficaemcima,botaodadireitaqueficaembaixo,botaoesquerdaficaencima,botaoesquerdaqueficaembaixo) {
+ // botões da direita 
+	document.getElementById(botaodadireitaqueficaemcima).style.zIndex = "0"; //
+	document.getElementById(botaodadireitaqueficaembaixo).style.zIndex = "-2";  
+	
+
+// botões da esquerda
+	document.getElementById(botaoesquerdaficaencima).style.zIndex = "0"; //
+	document.getElementById(botaoesquerdaqueficaembaixo).style.zIndex = "-2"; // 
+	
+}
+
+// aciona as funções que retiram as imagens e seus botões para colocar as imagens e botões de baixo
+//funções da imagem 1 
+function botao1() {
+trocaimagem("imagem2","imagem1");//o primeiro é sempre a nova imagem e o segundo a velha
+trocabotao("botao2","botao1","botaoesquerda2","botaoesquerda1");//o primeiro é sempre o novo botão e o segundo o velho
+} 
+function botaoesquerda1() {
+trocaimagem("imagem3","imagem1");//o primeiro é sempre a nova imagem e o segundo a velha
+trocabotao("botao3","botao1","botaoesquerda3","botaoesquerda1");//o primeiro é sempre o novo botão e o segundo o velho
+} 
+//funções da imagem 2 
+function botao2() {
+trocaimagem("imagem3","imagem2");//o primeiro é sempre a nova imagem e o segundo a velha
+trocabotao("botao3","botao2","botaoesquerda3","botaoesquerda2");//o primeiro é sempre o novo botão e o segundo o velho
+} 
+function botaoesquerda2() {
+trocaimagem("imagem1","imagem2");//o primeiro é sempre a nova imagem e o segundo a velha
+trocabotao("botao1","botao2","botaoesquerda1","botaoesquerda2");//o primeiro é sempre o novo botão e o segundo o velho
+} 
+//funções da imagem 3 
+function botao3() {
+trocaimagem("imagem1","imagem3");//o primeiro é sempre a nova imagem e o segundo a velha
+trocabotao("botao1","botao3","botaoesquerda1","botaoesquerda3");//o primeiro é sempre o novo botão e o segundo o velho
+} 
+function botaoesquerda3() {
+trocaimagem("imagem2","imagem3");//o primeiro é sempre a nova imagem e o segundo a velha
+trocabotao("botao2","botao3","botaoesquerda2","botaoesquerda3");//o primeiro é sempre o novo botão e o segundo o velho
+} 
+
+
+</script>
+
+
+
+
+
+<div class="caixa">
+<div class="esquerda">
+<button id="botaoesquerda1" type="button" onclick="botaoesquerda1()"><1</button> 
+<button id="botaoesquerda2" type="button" onclick="botaoesquerda2()"><2</button>   
+<button id="botaoesquerda3" type="button" onclick="botaoesquerda3()"><3</button>    
+    
+</div>
+
+<div class="direita">
+<button id="botao1" type="button" onclick="botao1()">1></button> 
+<button id="botao2" type="button" onclick="botao2()">2></button>   
+<button id="botao3" type="button" onclick="botao3()">3></button>    
+    
+</div>
+
+
+</div>
+</body>
+
+</html>
